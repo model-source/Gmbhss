@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMBHSS Thrissur Staffs</title>
+</head>
+<style>
+html,body{
+	margin:0;
+	padding:0;
+}
+h1{
+	items-align:center;
+	margin-top:160px;
+	font-size:40px;
+	letter-spacing:0.001px;
+	line-height:1.5;
+	opacity:0;
+	transform:translateX(-50px);
+	animation:slideFadeIn 1.25s forwards;
+}
+@keyframes slideFadeIn{
+	to{
+		opacity:1;
+		transform:translateX(0);
+	}}
+	body{
+		padding:20px;
+	}
+	.panel{
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:150px;
+		overflow:hidden;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		background:ffd699;
+	}
+	.panelimg{
+		height:auto;
+		width:auto;
+		object-fit:cover;
+		aling-items:left;
+		animation:fade 1.1s forwards;
+		opacity:0;
+	}
+	@keyframes fade{
+		to{
+			opacity:1;
+		}}
+		p{
+			opacity:0;
+			transform:translateY(25px);
+			animation:fadeUp 1.2s forwards;
+		}
+		.pic{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			opacity:0;
+			animation:fadeUp 1.2s forwards;
+			transform:translateY(25px);
+		}
+		@keyframes fadeUp{
+			to{
+				opacity:1;
+				transform:translateY(0px);
+			}}
+			.bar{
+				width:100%;
+				height:25px;
+				margin-top:130px;
+				margin-left:-20px;
+				background:white;
+				position:absolute;
+				display:flex;
+			}
+          .menubutton{
+			  margin-left:5px;
+			  font-size:20px;
+			  cursor:pointer;
+			  background:transparent;
+			  color:black;
+			  font-weight:bold;
+			  font-family:trebuchet ms;
+			  font-weight:bold;
+		  }
+		  .menubutton:hover{
+			  color:#aaffef;
+		  }
+		  .sidebar{
+			  position:fixed;
+			  top:0;
+			  left:0;
+			  width:0;
+			  height:100%;
+			  background:rgba(34,34,34,0.85);
+			  overflow-x:hidden;
+			  transition:width 0.4s ease;
+              padding-top:200px;
+			  z-index:1000;
+		  }
+		  .sidebar a{
+			  display:block;
+			  padding:12px 20px;
+			  color:white;
+			  text-decoration:none;
+			  font-size:18px;
+			  transition:0.4s ease;
+		  }
+		  .sidebar a:hover{
+			  background:#333;
+		  }
+			  .menubutton:hover+.sidebar,
+			  .sidebar:hover{
+				  width:200px;
+				}
+		.sideitem{
+			position:relative;
+			display:block;
+            width:100%;
+			padding:12px 20px;
+			cursor:pointer;
+			margin-top:0px;
+			color:white;
+			font-size:18px;
+			overflow:hidden;
+			transition:color 0.3s ease;
+			z-index:1;
+			font-family:trebuchet ms;
+			font-weight:bold;
+			border-bottom:2px solid #ffb699;
+		}
+		.sideitem::before{
+			content:"";
+			position:absolute;
+			top:0;
+			left:-100%;
+			width:100%;
+            height:100%;
+			background:rgba(255,255,255,0.97);
+			transition:left 0.4s ease;
+			z-index:-1;
+		}
+		.sideitem:hover::before{
+			left:0;
+		}
+		.sideitem:hover{
+			color:black;
+		}
+		.logo{
+			position:absolute;
+			top:0;
+			left:0;
+		}
+		.contpanel{
+			position:absolute;
+			margin-bottom:0;
+			left:0;
+			width:100%;
+			background:#4686cd;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			padding:3px 0;
+			gap:10px;
+			box-shadow:0 -2px 6p rgba(0,0,0,0.2);
+			z-index:1000;
+		}
+		.contpanel h2{
+			font-size:16px;
+		}
+		.contbutton{
+			display:flex;
+			justify-content:center;
+			gap:20px;
+		}
+		.contbutton{
+			display:inline-block;
+			padding:5px 10px;
+			color:white;
+			background:#222;
+			border-radius:6px;
+			text-decoration:none;
+			font-weight:bold;
+			transition:background 0.3s ease,transform 0.3s ease;
+		}
+		.contbutton.gmail{
+			background:#d44638;
+		}
+		.contbutton.phone{
+			background:#34a853;
+		}
+		.contbutton:hover{
+			transform:scale(1.05);
+			opacity(0.9);
+		}
+		.grid{
+			display:grid;
+			grid-template-columns:repeat(1,1fr);
+			gap:25px;
+			padding-left:370px;
+			padding-right:370px;
+		}
+		.cell{
+			position:relative;
+			background:#eeeeee;
+			padding:20px;
+			text-align:center;
+			border-radius:8px;
+			box-shadow:0 2px 6px rgba(0,0,0,0.2);
+			transition:transform 0.3s ease;
+
+		}
+		.cimg{
+			position:absolute;
+			right:0;
+			top:0;
+			width:98px;
+			height:98px;
+			border-radius:6px;
+			opacity:0;
+			animation:fade 1.2s forwards;
+		}
+			.cell:hover{
+			transform:scale(1.5);
+		}
+		.cell h2, .cell h3, .cell p{
+			margin:0;
+			padding:0;
+		}
+		.cell h2{
+			font-size:30px;
+            font-weight:bold;
+            margin-bottom:0;
+            opacity:0;
+            animation:fadeUp 1.2s forwards;
+            transform:translateY(25px);
+		}
+		.cell h3{
+			font-size:20px;
+			font-weight:bold;
+			margin-bottom:0px;
+			animation:fadeUp 1.2s forwards;
+			opacity:0;
+			transform:translateY(25px);
+		}
+		.cell p{
+			font-size:15px;
+			font-weight:normal;
+			margin:0;
+		}
+		@keyframes fadeUp{
+			to{
+				opacity:1;
+				transform:translateY(0);
+			}}
+		.staff{
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			height:100%;
+			text-align:center;
+		}
+		.staff h2{
+			margin:0;
+			padding:0;
+		}
+		.staff h2{
+			font-size:30px;
+			font-weight:bold;
+			margin:0 0 8px 0;
+			opacity:0;
+			animation:fadeUp 1.2s forwards;
+			transform:translateY(25px);
+		}
+
+		</style>
+		<font face="trebuchet ms">
+		<body bgcolor="#aaffef"></body>
+		<div class="panel">
+		<div class="panelimg">inside image here</div>
+		</div>
+		<div class="bar">
+		<div class="menubutton">Menu</div>
+		<div class="sidebar">
+			<img src="modelboyslogo.jpg" alt="logo" class="logo" width="200px" height="200px">
+			<div class="sideitem" onclick="window.location.href='school.html'">Home</div>
+			<div class="sideitem" onclick="window.location.href='nss.html'">NSS</div>
+			<div class="sideitem" onclick="window.location.href='ncc.html'">NCC</div>
+            <div class="sideitem" onclick="window.location.href='souhridha.html'">Souhridha Club</div>
+			<div class="sideitem" onclick="window.location.href='staff.html'">Our Staff</div>
+		</div></div>
+		<h1 align="center">Govt. Model Boys Higher Secondary School,Thrissur</h1>
+		<div class="staff"><h2>LP/UP/HS FACULITIES</h2></div>
+		<div class="staff">
+			<h2>HSS FACULITIES</h2></div>
+			<div class="grid">
+			<div class="cell">
+			<h2>NISHA J B</h2>
+			<h3>PRINCIPAL (ENGLISH)</h3>
+			<img src="animg" class="cimg">
+			</div>
+            <div class="cell">
+            <h2>BABY M</h2>
+            <h3>HSST GEOGRAPHY (SEL. GRADE)</h3>
+            </div>
+            <div class="cell">
+            <h2>SHEENA P D</h2>
+            <h3>HSST ECONOMICS (SEL. GRADE)</h3>
+            </div>
+            <div class="cell">
+			<h2>VIDYA K</h2>
+			<h3>HSST PHYSICS (SEL. GRADE)</h3>
+			</div>
+            <div class="cell">
+            <h2>SAJEEV KUMAR K</h2>
+            <h3>HSST ECONOMICS (SEL. GRADE)</h3></div>
+            <div class="cell">
+            <h2>LATHA U MENON</h2>
+            <h3>HSST MATHEMATICS (SEL. GRADE)</h3>
+            </div>
+            <div class="cell">
+			<h2>SANTHI P K</h2>
+			<h3>HSST ENGLISH (SEL. GRADE)</h3>
+			</div>
+            <div class="cell">
+            <h2>GEETHA P</h2>
+            <h3>HSST PHYSICS (SEL. GRADE)</h3>
+            <p>M.Sc PHYSICS, B.Ed, SET</p>
+            </div>
+            <div class="cell">
+            <h2>DEEPA T G</h2>
+            <h3>HSST MATHEMATICS (SEL. GRADE)</h3>
+            </div>
+            <div class="cell">
+			<h2>PREETHY E</h2>
+			<h3>HSST CHEMISTRY (SEL. GRADE)</h3></div>
+            <div class="cell">
+            <h2>PRAKAS BABU P D</h2>
+            <h3>HSST MALAYALAM (SEL. GRADE)</h3>
+            </div>
+            <div class="cell">
+            <h2>BINU M S</h2>
+            <h3>HSST POLITICAL SCIENCE (HG)</h3>
+            </div>
+            <div class="cell">
+			<h2>LIZA MARIA F</h2>
+			<h3>HSST ENGLISH (HG)</h3>
+			</div>
+            <div class="cell">
+            <h2>SEEMA C J</h2>
+            <h3>HSST MALAYALAM (HG)</h3>
+            </div>
+            <div class="cell">
+            <h2>MEERA PAUL</h2>
+            <h3>HSST COMMERCE (HG)</h3>
+            </div>
+            <div class="cell">
+			<h2>SOHEL V NAIR</h2>
+			<h3>HSST HISTORY (HG)</h3>
+			</div>
+            <div class="cell">
+            <h2>RAJINI A P</h2>
+            <h3>HSST ZOOLOGY (HG)</h3>
+            </div>
+            <div class="cell">
+            <h2>USHA S</h2>
+            <h3>HSST CHEMISTRY (HG)</h3>
+            </div>
+            <div class="cell">
+			<h2>SREEJI K S</h2>
+			<h3>HSST COMPUTER SCIENCE (HG)</h3>
+			<p>M.CA, M.Tech (CSE)</p>
+			</div>
+            <div class="cell">
+            <h2>RADHAKRISHNAN V U</h2>
+            <h3>HSST BOTANY (SEL. GRADE)</h3>
+            </div>
+            <div class="cell">
+            <h2>SHEENA JOSEPH</h2>
+            <h3>HSST HINDI (HG)</h3>
+            </div>
+            <div class="cell">
+			<h2>MANJULA V R</h2>
+			<h3>HSST SANSKRIT (JR)</h3>
+			</div>
+            <div class="cell">
+            <h2>SREEJA P</h2>
+            <h3>HSST COMMERCE (JR)</h3>
+            </div>
+            <div class="cell">
+            <h2>MISHA SEBASTIAN</h2>
+            <h3>HSST HISTORY (JR)</h3>
+            <p>M.A HISTORY, B.Ed SOCIAL SCIENCE, SET</p>
+            </div>
+            <div class="cell">
+			<h2>PRADEEP A C</h2>
+			<h3>HSST POLITICAL SCIENCE (JR)</h3>
+			</div>
+            <div class="cell">
+            <h2>NARMADA K V</h2>
+            <h3>HSST ENGLISH (JR)</h3>
+            </div>
+            <div class="cell">
+            <h2>NIJA K C</h2>
+            <h3>HSST GEOGRAPHY (JR)</h3>
+            <p>M.Sc, B.Ed, M.Phil, PhD(ALL IN GEOGRAPHY)</p>
+            </div>
+            <div class="cell">
+			<h2>SREEJA K S</h2>
+			<h3>HSST COMPUTER SCIENCE (JR)</h3>
+			<p>M.Sc COMPUTER SCIENCE</p>
+			</div>
+            <div class="cell">
+            <h2>SUMESH K M</h2>
+            <h3>LAB ASSISTANT</h3>
+            </div>
+            <div class="cell">
+            <h2>KRISHNAPRASAD P K</h2>
+            <h3>LAB ASSISTANT</h3>
+</div>
+            </div>
+		</font><br><br>
+		<div class="contpanel">
+		<h2>Contact Us</h2>
+		<font face="verdana">
+		<div class="contbutton">
+		<a href="mailto:school@gmail.com" class="contbutton gmail">Mail</a>
+		<a href="tel:+9878987898" class="contbutton phone">Phone</a></div></div></font>
+		</html>
